@@ -11,25 +11,16 @@ import java.time.Instant;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="posts")
-public class Post {
-
+@Table(name="communities")
+public class CommunityEntity {
     @Id
-    @Column(name="post_id")
+    @Column(name="community_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long postId;
+    private Long communityId;
     @Column(name="name", nullable = false)
     private String name;
     @Column(name="description", nullable = false)
     private String description;
-    @Column(name="vote_count", nullable = false)
-    private Integer voteCount;
     @Column(name="created", nullable = false)
     private Instant created;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
-    private User user;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "community_id", referencedColumnName = "community_id")
-    private Community community;
 }

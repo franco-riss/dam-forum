@@ -15,7 +15,7 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name="users")
-public class User {
+public class UserEntity {
     @Id
     @Column(name="user_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,5 +33,5 @@ public class User {
             name = "user_community",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "community_id"))
-    private List<Community> comunidades;
+    private List<CommunityEntity> comunidades;
 }

@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name="votes")
-public class Vote {
+public class VoteEntity {
     @Id
     @Column(name="vote_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,8 +21,8 @@ public class Vote {
     private VoteType voteType;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id", referencedColumnName = "post_id")
-    private Post post;
+    private PostEntity postEntity;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
-    private User user;
+    private UserEntity userEntity;
 }

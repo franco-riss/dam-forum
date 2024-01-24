@@ -16,7 +16,7 @@ import java.time.Instant;
 @Builder
 @Entity
 @Table(name="comments")
-public class Comment {
+public class CommentEntity {
     @Id
     @Column(name="comment_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,8 +27,8 @@ public class Comment {
     private Instant created;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id", referencedColumnName = "post_id")
-    private Post post;
+    private PostEntity postEntity;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
-    private User user;
+    private UserEntity userEntity;
 }
