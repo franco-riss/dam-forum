@@ -22,8 +22,9 @@ public class CommunityService implements ICommunityService {
 
     // CREATE
     public CommunityResponseDto createCommunity(CommunityRequestDto communityRequestDto) {
-        CommunityEntity save = communityRepository.save(communityMapper.dtoRequestToEntity(communityRequestDto));
-        return communityMapper.entityToDtoResponse(save);
+        CommunityEntity community = communityMapper.dtoRequestToEntity(communityRequestDto);
+        community.setCreated(java.time.Instant.now());
+        return communityMapper.entityToDtoResponse(communityRepository.save(community));
     }
 
     // READ

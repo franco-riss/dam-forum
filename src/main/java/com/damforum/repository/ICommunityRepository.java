@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ICommunityRepository extends JpaRepository<CommunityEntity, Long> {
-
+    CommunityEntity findByName(String communityName);
 }

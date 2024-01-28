@@ -19,9 +19,9 @@ public class PostEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long postId;
     @Column(name="name", nullable = false)
-    private String name;
+    private String title;
     @Column(name="description", nullable = false)
-    private String description;
+    private String text;
     @Column(name="vote_count", nullable = false)
     private Integer voteCount;
     @Column(name="created", nullable = false)

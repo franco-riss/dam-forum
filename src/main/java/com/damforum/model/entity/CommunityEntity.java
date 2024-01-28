@@ -21,6 +21,6 @@ public class CommunityEntity {
     private String name;
     @Column(name="description", nullable = false)
     private String description;
-    @Column(name="created")
+    @Column(name="created", nullable = false)
     private Instant created;
 }
