@@ -6,6 +6,5 @@ import com.damforum.model.dto.SignupRequestDto;
 
 public interface IAuthService {
     AuthResponseDto login(LoginRequestDto request);
-
     AuthResponseDto signup(SignupRequestDto request);
 }

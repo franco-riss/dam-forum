@@ -32,25 +32,25 @@ public class PostService implements IPostService {
 
         CommunityEntity community = communityRepository.findByName(postRequestDto.getCommunityName());
 
-        PostEntity post = postMapper.dtoRequestToEntity(postRequestDto);
+        PostEntity post = postMapper.requestDtoToEntity(postRequestDto);
 
         post.setCreated(java.time.Instant.now());
         post.setCommunityEntity(community);
         post.setVoteCount(0);
 
-        return postMapper.entityToDtoResponse(postRepository.save(post), commentRepository);
+        return postMapper.entityToResponseDto(postRepository.save(post), commentRepository);
     }
 
     // READ
     public PostResponseDto readPost(Long id) {
         PostEntity post = postRepository.findById(id).orElse(null);
-        return postMapper.entityToDtoResponse(post, commentRepository);
+        return postMapper.entityToResponseDto(post, commentRepository);
     }
 
     public List<PostResponseDto> readPosts() {
         return postRepository.findAll()
                 .stream()
-                .map(post -> postMapper.entityToDtoResponse(post, commentRepository))
+                .map(post -> postMapper.entityToResponseDto(post, commentRepository))
                 .collect(toList());
     }
 }

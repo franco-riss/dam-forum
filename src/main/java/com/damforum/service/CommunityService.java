@@ -22,21 +22,21 @@ public class CommunityService implements ICommunityService {
 
     // CREATE
     public CommunityResponseDto createCommunity(CommunityRequestDto communityRequestDto) {
-        CommunityEntity community = communityMapper.dtoRequestToEntity(communityRequestDto);
+        CommunityEntity community = communityMapper.requestDtoToEntity(communityRequestDto);
         community.setCreated(java.time.Instant.now());
-        return communityMapper.entityToDtoResponse(communityRepository.save(community));
+        return communityMapper.entityToResponseDto(communityRepository.save(community));
     }
 
     // READ
     public CommunityResponseDto readCommunity(Long id) {
         CommunityEntity community = communityRepository.findById(id).orElse(null);
-        return communityMapper.entityToDtoResponse(community);
+        return communityMapper.entityToResponseDto(community);
     }
 
     public List<CommunityResponseDto> readCommunities() {
         return communityRepository.findAll()
                 .stream()
-                .map(communityMapper::entityToDtoResponse)
+                .map(communityMapper::entityToResponseDto)
                 .collect(toList());
     }
 }

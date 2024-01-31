@@ -10,8 +10,8 @@ import org.mapstruct.Context;
 
 @Mapper(componentModel = "spring")
 public interface IPostMapper {
+    PostEntity requestDtoToEntity(PostRequestDto postRequestDto);
     @Mapping(target = "community", source = "communityEntity")
     @Mapping(target = "commentCount", expression = "java(commentRepository.countByPostEntity(postEntity))")
-    PostResponseDto entityToDtoResponse(PostEntity postEntity, @Context ICommentRepository commentRepository);
-    PostEntity dtoRequestToEntity(PostRequestDto postRequestDto);
+    PostResponseDto entityToResponseDto(PostEntity postEntity, @Context ICommentRepository commentRepository);
 }

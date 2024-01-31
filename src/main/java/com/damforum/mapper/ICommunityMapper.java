@@ -7,7 +7,6 @@ import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface ICommunityMapper {
-
-    CommunityResponseDto entityToDtoResponse(CommunityEntity communityEntity);
-    CommunityEntity dtoRequestToEntity(CommunityRequestDto communityRequestDto);
+    CommunityEntity requestDtoToEntity(CommunityRequestDto communityRequestDto);
+    CommunityResponseDto entityToResponseDto(CommunityEntity communityEntity);
 }

@@ -11,6 +11,5 @@ public interface ICommunityService {
 
     // READ
     CommunityResponseDto readCommunity(Long id);
-
     List<CommunityResponseDto> readCommunities();
 }
